@@ -2,7 +2,18 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --surface: #ffffff;
+  --foreground: #000000; /* black text */
+  --muted: #6b7280;
+
+  /* Palette */
+  --primary: #0f62fe; /* vibrant blue */
+  --primary-600: #0353e9;
+  --accent: #ff4d4f; /* red */
+  --accent-600: #d32f2f;
+  --white: #ffffff;
+  --grey-light: #f3f4f6;
+  --grey-dark: #d1d5db;
 }
 
 @theme inline {
@@ -12,10 +23,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Keep background white across color schemes per request */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --surface: #ffffff;
+    --foreground: #000000;
+    --muted: #6b7280;
+    --primary: #0f62fe;
+    --primary-600: #0353e9;
+    --accent: #ff4d4f;
+    --accent-600: #d32f2f;
   }
 }
 
@@ -24,3 +42,70 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Utility classes for the app palette */
+.bg-surface { background-color: var(--surface) !important; }
+.text-foreground { color: var(--foreground) !important; }
+.text-muted { color: var(--muted) !important; }
+.text-primary { color: var(--primary) !important; }
+.text-accent { color: var(--accent) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.bg-primary-600 { background-color: var(--primary-600) !important; }
+.bg-accent { background-color: var(--accent) !important; }
+.border-primary { border-color: var(--primary) !important; }
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+}
+.btn-primary:hover { background-color: var(--primary-600); }
+.btn-ghost {
+  background: transparent;
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.btn-danger {
+  background-color: var(--accent);
+  color: var(--white);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  font-weight: 600;
+}
+
+/* Cards */
+.card { background: var(--surface); border-radius: 1rem; box-shadow: 0 6px 20px rgba(2,6,23,0.06); }
+
+/* Form and table styling */
+.form-container {
+  background: var(--grey-light);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.form-input, .form-select, .form-textarea {
+  background: var(--white);
+  color: var(--foreground);
+  border: 1px solid var(--grey-dark);
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+.form-label {
+  color: var(--foreground);
+}
+.table-bg {
+  background: var(--grey-light);
+}
+.table-row-hover:hover {
+  background: var(--grey-dark);
+}
+
+/* Small helpers */
+.muted-bg { background-color: rgba(15,98,254,0.06); }
