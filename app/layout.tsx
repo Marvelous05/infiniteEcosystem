@@ -28,28 +28,32 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-surface text-foreground">
-        <div className="w-full border-b px-6 py-4 bg-surface/95 shadow-sm">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        <div className="w-full bg-primary px-6 py-5 shadow-[0_24px_80px_rgba(16,45,114,0.18)]">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="space-y-1">
+              <p className="text-xs uppercase tracking-[0.35em] text-white/70">
                 Infinite Biomedical Solutions
               </p>
+              <h1 className="text-xl font-semibold text-white sm:text-2xl">
+                Billing, invoicing & task flow
+              </h1>
             </div>
-            <nav className="flex flex-wrap items-center gap-3 text-sm">
-              <Link className="text-primary hover:underline" href="/">
+
+            <nav className="flex flex-wrap items-center gap-4 text-sm font-medium text-white">
+              <Link className="transition hover:text-accent" href="/">
                 Dashboard
               </Link>
-              <Link className="text-primary hover:underline" href="/invoices">
+              <Link className="transition hover:text-accent" href="/invoices">
                 Invoices
               </Link>
-              <Link className="text-primary hover:underline" href="/clients">
+              <Link className="transition hover:text-accent" href="/clients">
                 Clients
               </Link>
-              <Link className="text-primary hover:underline" href="/products">
+              <Link className="transition hover:text-accent" href="/products">
                 Products
               </Link>
-              <Link className="text-primary hover:underline" href="/tasks">
+              <Link className="transition hover:text-accent" href="/tasks">
                 Tasks
               </Link>
             </nav>
